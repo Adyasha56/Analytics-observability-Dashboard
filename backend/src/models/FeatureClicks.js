@@ -1,6 +1,6 @@
 import { DataTypes } from 'sequelize';
 import sequelize from '../config/database.js';
-import User from './User.js';
+import User from '../models/User.js';
 
 const FeatureClicks = sequelize.define('FeatureClicks', {
   id: {
@@ -26,7 +26,7 @@ const FeatureClicks = sequelize.define('FeatureClicks', {
     defaultValue: DataTypes.NOW,
   },
   actionType: {
-    type: DataTypes.STRING, // 'filter_change', 'chart_click', 'bar_click', etc.
+    type: DataTypes.STRING,
     allowNull: false,
   },
 }, {
