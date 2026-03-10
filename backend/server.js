@@ -25,24 +25,49 @@ app.use('/api/auth', authRoutes);
 app.use('/api', analyticsRoutes);
 
 app.get('/api/health', (req, res) => {
-  res.json({ status: 'Backend is running ✅' });
+  res.json({ 
+    status: 'Backend is running',
+    environment: process.env.NODE_ENV,
+    timestamp: new Date().toISOString()
+  });
 });
 
 //db sync
-sequelize.sync({ alter: false }).then(() => {
-  console.log('Database synced');
-}).catch(err => {
-  console.error('Database sync failed:', err);
-});
+const syncDatabase = async () => {
+  try {
+    // In production: alter: false (safer)
+    // In development: alter: true (auto-update schema)
+    const alterMode = process.env.NODE_ENV === 'production' ? false : true;
+    
+    await sequelize.sync({ alter: alterMode });
+    console.log('Database synced');
+  } catch (err) {
+    console.error('Database sync failed:', err);
+    // In production, don't crash - just log
+    if (process.env.NODE_ENV === 'production') {
+      console.error('Warning: Database sync failed, but server continuing...');
+    } else {
+      process.exit(1);
+    }
+  }
+};
+
+syncDatabase();
 
 //err handling
 app.use((err, req, res, next) => {
   console.error(err.stack);
-  res.status(500).json({ error: 'Something went wrong!' });
+  res.status(500).json({ 
+    error: 'Something went wrong!',
+    message: process.env.NODE_ENV === 'development' ? err.message : 'Internal Server Error'
+  });
 });
 
+
 app.listen(PORT, () => {
-  console.log(`Server running on http://localhost:${PORT}`);
+  console.log(`Server running on port ${PORT}`);
+  console.log(`Environment: ${process.env.NODE_ENV}`);
+  console.log(`Frontend URL: ${process.env.FRONTEND_URL}`);
 });
 
 export default app;
