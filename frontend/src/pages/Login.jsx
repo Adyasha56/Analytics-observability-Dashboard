@@ -26,7 +26,12 @@ export default function Login() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-purple/10 to-yellow/10">
+    <div className="min-h-screen flex items-center justify-center" style={{
+      backgroundImage: 'url(/image.jpg)',
+      backgroundSize: 'cover',
+      backgroundPosition: 'center',
+      backgroundAttachment: 'fixed'
+    }}>
       <div className="card w-full max-w-md">
         <h1 className="text-3xl font-bold text-center mb-8 text-purple">Login</h1>
 

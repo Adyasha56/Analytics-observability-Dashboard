@@ -25,9 +25,8 @@ export default function LandingNavbar() {
         {/* Logo */}
         <div className="flex items-center gap-2">
           <div className="bg-gradient-to-br from-violet-600 to-violet-500 text-white rounded-lg p-2">
-            <span className="text-xl font-bold">📊</span>
           </div>
-          <span className="text-2xl font-bold text-gray-800 hidden sm:inline">Analytics</span>
+          <span className="text-2xl font-bold text-gray-800 hidden sm:inline">InsightBoard</span>
         </div>
 
         {/* Desktop Navigation */}

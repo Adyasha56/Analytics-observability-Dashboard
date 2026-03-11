@@ -8,7 +8,6 @@ export default function LandingFooter() {
           {/* Brand */}
           <div className="flex items-center gap-2">
             <div className="bg-gradient-to-br from-violet-600 to-violet-500 rounded-lg p-2">
-              <span className="text-lg font-bold">📊</span>
             </div>
             <span className="text-lg font-semibold">Analytics Platform</span>
           </div>

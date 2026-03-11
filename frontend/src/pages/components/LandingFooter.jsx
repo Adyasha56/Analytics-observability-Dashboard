@@ -4,7 +4,7 @@ export default function LandingFooter() {
       <div className="max-w-4xl mx-auto px-4">
         <div className="grid md:grid-cols-3 gap-8 mb-8">
           <div>
-            <h4 className="font-bold mb-3 text-sm">📊 Product Analytics</h4>
+            <h4 className="font-bold mb-3 text-sm">Product Analytics</h4>
             <p className="text-gray-400 text-xs">Track user engagement and feature adoption.</p>
           </div>
           

@@ -3,16 +3,21 @@ import { ArrowRight, Sparkles } from 'lucide-react';
 
 export default function HeroSection() {
   return (
-    <section id="hero" className="relative py-20 px-6 overflow-hidden">
-      {/* Gradient Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-violet-50 via-white to-amber-50 -z-10" />
+    <section id="hero" className="relative py-20 px-6 overflow-hidden" style={{
+      backgroundImage: 'url(/bgimage.jpg)',
+      backgroundSize: 'cover',
+      backgroundPosition: 'center',
+      backgroundAttachment: 'fixed'
+    }}>
+      {/* Overlay for better text visibility */}
+      <div className="absolute inset-0 bg-black/20" style={{ zIndex: 0 }} />
 
-      <div className="max-w-6xl mx-auto text-center">
+      <div className="max-w-6xl mx-auto text-center relative" style={{ zIndex: 1 }}>
         {/* Badge */}
         <div className="inline-flex items-center gap-2 mb-8">
           <Sparkles className="w-5 h-5 text-violet-600" />
           <span className="px-4 py-2 bg-violet-100 text-violet-700 rounded-full text-sm font-semibold">
-            🚀 Interactive Analytics Platform
+            Interactive Analytics Platform
           </span>
         </div>
 
