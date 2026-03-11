@@ -2,22 +2,25 @@ import { Link } from 'react-router-dom';
 
 export default function HeroSection() {
   return (
-    <section className="relative min-h-[500px] flex items-center justify-center py-20 overflow-hidden" id="hero">
-      <img 
-        src="/bgimage.jpg"
-        alt="background"
-        className="absolute inset-0 w-full h-full object-cover -z-10"
-      />
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden" id="hero" style={{
+      backgroundImage: 'url(/bgimage.jpg)',
+      backgroundSize: 'cover',
+      backgroundPosition: 'center',
+      backgroundAttachment: 'fixed'
+    }}>
+      {/* Overlay for better text visibility */}
+      <div className="absolute inset-0 bg-black/30" style={{ zIndex: 0 }} />
       
-      <div className="max-w-4xl mx-auto text-center px-4 relative z-10 bg-white/40 rounded-lg py-8 px-8">
-        <h1 className="text-3xl md:text-4xl font-bold mb-4 text-purple">
+      <div className="max-w-4xl mx-auto text-center px-4 relative z-10">
+        <h1 className="text-5xl md:text-6xl font-bold mb-4 text-violet-500 drop-shadow-lg">
           Product Analytics Dashboard
         </h1>
-        <p className="text-base md:text-lg text-gray-600 mb-6">
+        <p className="text-lg md:text-xl text-white
+        -700 mb-8 drop-shadow-md">
           Track user engagement, feature clicks, and analytics in real-time
         </p>
         
-        <div className="space-y-4 md:space-y-0 md:space-x-4">
+        <div className="space-y-4 md:space-y-0 md:space-x-4 flex flex-col md:flex-row justify-center items-center">
           <Link 
             to="/register" 
             className="inline-block btn-primary"
