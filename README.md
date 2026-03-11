@@ -614,8 +614,8 @@ npm run seed
    - Deploy
 
 3. **Get live URLs**
-   - Backend: `https://your-backend.onrender.com`
-   - Frontend: `https://your-frontend.vercel.app`
+   - Backend: `https://dashboard-em9s.onrender.com`
+   - Frontend: `https://analytics-observability-dashboard.vercel.app/`
 
 ---
 
