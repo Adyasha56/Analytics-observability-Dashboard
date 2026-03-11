@@ -12,7 +12,14 @@ const sequelize = new Sequelize(
     port: process.env.DB_PORT,
     dialect: 'postgres',
     logging: false, // Set to console.log to see SQL queries
-  }
+    // Add this to enable SSL
+    dialectOptions: {
+      ssl: {
+        require: true,
+        rejectUnauthorized: false,
+      },
+    }
+  },
 );
 
 export default sequelize;
